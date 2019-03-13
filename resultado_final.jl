@@ -1,8 +1,8 @@
 include("classe.jl")
 include("fitness.jl")
 
-function plot(fronteira)
-	file = "res"
+function plot(fronteira, nome)
+	file = "res-" * nome
 	open(file, "w") do f # append = "a"
 		for ponto in fronteira
 			write(f, string(ponto[1]) * " " * string(ponto[2]) * "\n")
@@ -37,4 +37,4 @@ println(length(fronteiras[1]))
 # end
 
 # plot(geral)
-plot(fronteiras[1])
+plot(fronteiras[1], ARGS[2])
