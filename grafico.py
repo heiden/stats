@@ -21,6 +21,13 @@ with open('res-brkga') as arq:
 
 ax.plot(x, y, 'x', c = '#fe12fe', label = 'brkga')
 
+with open('res-brkga-nsga') as arq:
+	linhas = arq.readlines()
+	x = [float(linha.split()[0]) for linha in linhas]
+	y = [float(linha.split()[1]) for linha in linhas]
+
+ax.plot(x, y, 'x', c = '#5f5f5f', label = 'brkga+nsga')
+
 leg = ax.legend()
 
 # plt.show()
