@@ -28,6 +28,20 @@ with open('res-brkga-nsga') as arq:
 
 ax.plot(x, y, 'x', c = '#5f5f5f', label = 'brkga+nsga')
 
+with open('res-meu-nsga') as arq:
+	linhas = arq.readlines()
+	x = [float(linha.split()[0]) for linha in linhas]
+	y = [float(linha.split()[1]) for linha in linhas]
+
+ax.plot(x, y, 'x', c = '#fedcba', label = 'meu nsga')
+
+with open('res-meu-nsga-adap') as arq:
+	linhas = arq.readlines()
+	x = [float(linha.split()[0]) for linha in linhas]
+	y = [float(linha.split()[1]) for linha in linhas]
+
+ax.plot(x, y, 'x', c = '#cbacbf', label = 'meu nsga adap')
+
 leg = ax.legend()
 
 # plt.show()
