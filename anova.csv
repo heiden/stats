@@ -1,0 +1,13 @@
+"delta","alg","card"
+0.25,"brkga",3
+0.50,"brkga-nsga",3
+0.55,"nsga",3
+0.55,"nsga-lit",3
+0.98,"brkga",9
+0.12,"brkga-nsga",9
+0.44,"nsga",9
+0.33,"nsga-lit",9
+0.12,"brkga",15
+0.58,"brkga-nsga",15
+0.98,"nsga",15
+0.04,"nsga-lit",15
