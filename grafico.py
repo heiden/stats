@@ -33,7 +33,7 @@ with open('res-meu-nsga') as arq:
 	x = [float(linha.split()[0]) for linha in linhas]
 	y = [float(linha.split()[1]) for linha in linhas]
 
-ax.plot(x, y, 'x', c = '#fedcba', label = 'meu nsga')
+ax.plot(x, y, 'x', c = '#1651af', label = 'meu nsga')
 
 with open('res-meu-nsga-adap') as arq:
 	linhas = arq.readlines()
