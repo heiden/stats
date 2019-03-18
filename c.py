@@ -62,6 +62,7 @@ def c(file_a, file_b):
 	return c
 
 if __name__ == "__main__":
-	file_a = argv[1]
-	file_b = argv[2]
+	dir = 'data/'
+	file_a = dir + argv[1]
+	file_b = dir + argv[2]
 	print(c(file_a, file_b))
