@@ -1,7 +1,7 @@
 from sys import argv
 from math import fabs
-import matplotlib.pyplot as plt
-from matplotlib.patches import Rectangle
+# import matplotlib.pyplot as plt
+# from matplotlib.patches import Rectangle
 
 def hv(arq):
 
