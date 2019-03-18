@@ -1,5 +1,5 @@
 # p < q significa que p domina q
-# p > q significa que p é dominado por q
+# p > q significa que p eh dominado por q
 
 # 			b E B | existe a E A : a < b
 # c(A,B) = ------------------------------
@@ -39,25 +39,29 @@ def domina(a, b):
 	else:
 		return False
 
-file_a = argv[1]
-file_b = argv[2]
+def c(file_a, file_b):
 
-A = []
-with open(file_a) as f:
-	for line in f:
-		A.append([float(i) for i in line.split()])
+	A = []
+	with open(file_a) as f:
+		for line in f:
+			A.append([float(i) for i in line.split()])
 
-B = []
-with open(file_b) as f:
-	for line in f:
-		B.append([float(i) for i in line.split()])
+	B = []
+	with open(file_b) as f:
+		for line in f:
+			B.append([float(i) for i in line.split()])
 
-c = 0
-for b in B:
-	for a in A:
-		if domina(a, b):
-			c += 1
-			break
+	c = 0
+	for b in B:
+		for a in A:
+			if domina(a, b):
+				c += 1
+				break
 
-c /= float(len(B))
-print('c(A,B):', c)
+	c /= float(len(B))
+	return c
+
+if __name__ == "__main__":
+	file_a = argv[1]
+	file_b = argv[2]
+	print(c(file_a, file_b))
