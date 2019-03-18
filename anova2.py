@@ -7,18 +7,8 @@ import pandas as pd
 import scipy
 import matplotlib.pyplot as plt
 
-import statsmodels
-import statsmodels.api as sm
-from statsmodels.formula.api import ols
-
-# nomes = ['claims', 'payment']
 data = pd.read_csv('./anova.csv')
 
-print(data)
-# data.boxplot('delta', by = 'card')
-# plt.show()
-
-# formula = 'delta ~ C(alg) + C(card) + C(alg):C(card)'
-# model = ols(formula, data).fit()
-# aov_table = statsmodels.stats.anova.anova_lm(model, typ=2)
-# print(aov_table)
+# separando por cardinalidade
+x = data.loc[data.cardinalidade == 3].hipervolume.values
+print(x)
