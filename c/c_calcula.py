@@ -1,9 +1,11 @@
 from c import c
 from sys import argv
+from os import listdir
 
 k = argv[1]
-dir = './data/'
-arqs = ['res-brkga-' + k, 'res-brkga-nsga-' + k, 'res-nsga-literatura-' + k, 'res-meu-nsga-' + k, 'res-meu-nsga-adap-' + k]
+dir = '../data/fronteiras/res/' + str(k) + '/'
+arqs = listdir(dir)
+print(arqs)
 
 m = [[0 for x in range(len(arqs))] for y in range(len(arqs))]
 for i in range(len(arqs)):
