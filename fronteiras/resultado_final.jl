@@ -9,24 +9,24 @@ function plot(fronteira, dir, arq)
 	end
 end
 
-dir = "./res/"
-arqs = readdir(dir)
-for arq in arqs
-	println(arq)
-	pontos = []
-	open(dir * arq, "r") do f
-		for line in eachline(f)
-			risco, retorno = map(x->parse(Float32, x), split(line))
-			push!(pontos, (risco => retorno))
+k = ["3", "9", "15"]
+algs = ["brkga", "brknsga", "nsgal", "nsgam"]
+
+for alg in algs
+	for i in k
+		pontos = []
+		dir = "../data/" * alg * "/" * i * "/"
+		println(dir)
+		arqs = readdir(dir)
+		for arq in arqs
+			open(dir * arq, "r") do f
+				for line in eachline(f)
+					risco, retorno = map(x->parse(Float32, x), split(line))
+					push!(pontos, (risco => retorno))
+				end
+			end
 		end
+		fronteiras, indices = nds(pontos)
+		plot(fronteiras[1], "./res/", alg * "-" * i)
 	end
-
-	fronteiras, indices = nds(pontos)
-	plot(fronteiras[1], dir, arq)
 end
-
-# for p in fronteiras[1]
-# 	println(p)
-# end
-
-# println(length(fronteiras[1]))
