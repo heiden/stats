@@ -27,8 +27,10 @@ model = ols(formula, data).fit()
 aov_table = statsmodels.stats.anova.anova_lm(model, typ = 2)
 print(aov_table)
 
-#                                  	sum_sq       df           F         PR(>F)
+#                                  	sum_sq       df           F        p-valor
 # Algoritmo                  		0.000654    3.0   14.012397   1.208370e-08
 # Cardinalidade             		0.015055    2.0  484.013436  3.038930e-101
 # Interacao  						0.000342    6.0    3.660914   1.540434e-03
 # Erro                       		0.005412  348.0
+
+# Resultado significante tanto para cardinalidade quanto para algoritmo, com nivel de confianca p < 0.05.

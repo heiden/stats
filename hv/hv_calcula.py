@@ -14,8 +14,9 @@ for a in algs:
 			res = hv(dir + arq)
 			hv_dir.append(res)
 		saida = './resultados/' + a + i
+		# file = open('hipervolume.csv', 'a')
 		file = open(saida, 'w')
-		# file = open('lol.csv', 'a')
 		for h in hv_dir:
+			# file.write(str(h) + '\n')
 			file.write(str(h) + ',' + '"' + a[:-1] + '",' + i + '\n')
 		file.close()
