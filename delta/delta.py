@@ -2,9 +2,9 @@
 # db - media de todas as distancias // sum(i=1:n) di/n 
 # n  - numero de solucoes nao dominadas
 
-# Quanto menor é o valor da métrica delta, mais bem espalhadas as soluções 
-# estão e, portanto, mais diversificadas elas são, sendo que o valor zero indica 
-# que o espaçamento entre todas as soluções consecutivas é exatamente o mesmo.
+# Quanto menor eh o valor da metrica delta, mais bem espalhadas as solucoes 
+# estao e, portanto, mais diversificadas elas sao, sendo que o valor zero indica 
+# que o espacamento entre todas as solucoes consecutivas eh exatamente o mesmo.
 
 from sys  import argv
 from math import sqrt, fabs
