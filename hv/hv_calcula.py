@@ -2,8 +2,7 @@ from hv import hv
 from os import listdir
 
 origem = '../data/'
-# algs = ['brkga/', 'brknsga/', 'nsgal/', 'nsgam/']
-algs = ['nsgal', 'nsgam']
+algs = ['brkga/', 'brknsga/', 'nsgal/', 'nsgam/']
 k = ['3', '9', '15']
 
 for a in algs:
@@ -16,6 +15,7 @@ for a in algs:
 			hv_dir.append(res)
 		saida = './resultados/' + a + i
 		file = open(saida, 'w')
+		# file = open('lol.csv', 'a')
 		for h in hv_dir:
-			file.write(str(h) + '\n')
+			file.write(str(h) + ',' + '"' + a[:-1] + '",' + i + '\n')
 		file.close()
