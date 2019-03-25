@@ -17,6 +17,6 @@ for a in algs:
 		# file = open('hipervolume.csv', 'a')
 		file = open(saida, 'w')
 		for h in hv_dir:
-			# file.write(str(h) + '\n')
-			file.write(str(h) + ',' + '"' + a[:-1] + '",' + i + '\n')
+			file.write(str(h) + '\n')
+			# file.write(str(h) + ',' + '"' + a[:-1] + '",' + i + '\n')
 		file.close()
