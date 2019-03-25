@@ -4,8 +4,8 @@ from sys import argv
 import matplotlib.pyplot as plt
 
 path = './'
-file = argv[1] + '.csv'
-nomes = ['BRKGA', 'BRKNSGA', 'NSGA-L', 'NSGA-M', 'NSGA-M-AD']
+file = 'c' + argv[1] + '.csv'
+nomes = ['BRKGA', 'BRKNSGA', 'NSGA-M', 'NSGA-L']
 dataset = pd.read_csv(path + file, names = nomes)
 print(dataset.values)
 
