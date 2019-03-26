@@ -27,11 +27,11 @@ model = ols(formula, data).fit()
 aov_table = statsmodels.stats.anova.anova_lm(model, typ = 2)
 print(aov_table)
 
-#                                  		  SS     df			   MS	           F        p-valor
-# Algoritmo                  		0.000654    3.0		0.0002179	  14.012397    1.208370e-08
-# Cardinalidade             		0.015055    2.0		0.0075275	  484.013436  3.038930e-101
-# Interacao  						0.000342    6.0		0.0000057 	  3.660914     1.540434e-03
-# Erro                       		0.005412  348.0		0.0000016
+#                                  		  SS     	df			   MS	             F    	     p-valor
+# Algoritmo                  		1.302472e-07    3.0		4.341573e-08	217.723477    	1.690350e-79
+# Cardinalidade             		1.374557e-07    2.0		6.872785e-08	344.660069  	2.923880e-83
+# Interacao  						4.007043e-08    6.0		6.678405e-09	 33.491216     	7.580074e-32
+# Erro                       		6.939386e-08  348.0		1.994076e-10		
 
 # MS = SS/df, pra cada linha
 # Resultado significante tanto para cardinalidade quanto para algoritmo, com nivel de confianca p < 0.05.
