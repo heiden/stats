@@ -6,26 +6,49 @@ ax = fig.add_subplot(111)
 # ax.set_title(titulo)
 ax.set_xlabel('Delta')
 ax.set_ylabel('Cardinalidade')
-ax.set_yticks([3, 9, 15])
+# ax.set_yticks([3, 9, 15])
 
-# 3: 
-media3 = 0.0001841
-std3 =  0.0002394
-# 9:  
-media9 =  0.0003037
-std9 = 0.0002909
-# 15: 
-media15 =  0.0004134
-std15 =  0.0003841
+# media5 =  0.00023693699622553328
+# desvio5 =  6.214176979728275e-05
+# media3 =  9.389232349464667e-05
+# desvio3 =  4.479112597948399e-06
+# media9 =  0.00012741713937333997
+# desvio9 =  1.74297224737753e-05
 
-c = [3,9,15]
-m = [0.00047612609126731456, 0.00019155621480413353, 0.0006676823060714481]
 
-x1, y1 = [0.0002329472571504425, 0.0007193049253841866], [3, 3]
-x2, y2 = [-2.2345922677263535e-05, 4.161148480295022e-05], [9, 9]
-x3, y3 = [-0.0002004153405818023, 0.0003498997351321556], [15, 15]
+
+# c = [3,9,15]
+# m = [media3, media9, media5]
+
+# x1, y1 = [media3 - desvio3, media3 + desvio3], [3, 3]
+# x2, y2 = [media9 - desvio9, media9 + desvio9], [9, 9]
+# x3, y3 = [media5 - desvio5, media5 + desvio5], [15, 15]
+
+ax.set_yticks([1,2,3,4])
+ax.set_yticklabels(['BRKGA', 'BRKNSGA', 'NSGA-M', 'NSGA-L'])
+
+mediabrknsga =  0.0002786103289414
+desviobrknsga =  5.208703732707201e-05
+mediabrkga =  0.0007587211974290665
+desviobrkga =  0.00017135123804833637
+mediansgam =  4.992824609479332e-05
+desvionsgam =  1.1105510862540179e-05
+mediansgal =  0.00012741713937333997
+desvionsgal =  1.74297224737753e-05
+
+
+c = [1,2,3,4]
+m = [mediabrkga, mediabrknsga, mediansgam, mediansgal]
+
+x1, y1 = [mediabrkga - desviobrkga, mediabrkga + desviobrkga], [1, 1]
+x2, y2 = [mediabrknsga - desviobrknsga, mediabrknsga + desviobrknsga], [2, 2]
+x3, y3 = [mediansgam - desvionsgam, mediansgam + desvionsgam], [3, 3]
+x4, y4 = [mediansgal - desvionsgal, mediansgal + desvionsgal], [4, 4]
+
 ax.plot(x1, y1, '-', c = '#000000')
 ax.plot(x2, y2, '-', c = '#000000')
 ax.plot(x3, y3, '-', c = '#000000')
+ax.plot(x4, y4, '-', c = '#000000')
 ax.plot(m, c, 'x', c = '#757D75')
-plt.show()
+plt.savefig('test.png')
+# plt.show()

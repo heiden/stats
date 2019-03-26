@@ -7,5 +7,5 @@ with open(arq) as f:
 	for line in f:
 		x.append(float(line))
 
-print('media: ', np.mean(x))
-print('desvio: ', np.std(x))
+print('media{} = '.format(arq[0:len(arq)-2]), np.mean(x))
+print('desvio{} = '.format(arq[0:len(arq)-2]), np.std(x))
