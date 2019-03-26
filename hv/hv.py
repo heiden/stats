@@ -1,3 +1,5 @@
+# quanto maior o hv, mais perto as solucoes estao da fronteira de pareto otima
+
 from sys import argv
 from math import fabs
 # import matplotlib.pyplot as plt

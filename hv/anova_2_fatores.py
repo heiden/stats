@@ -13,10 +13,10 @@ from statsmodels.formula.api import ols
 
 data = pd.read_csv('./hipervolume.csv')
 
-# print(data)
+# data = data[data['Cardinalidade'] == 3]
+
 data.boxplot('Hipervolume', by = 'Algoritmo')
 plt.savefig('hipervolume_por_algoritmo.png')
-
 data.boxplot('Hipervolume', by = 'Cardinalidade')
 plt.savefig('hipervolume_por_cardinalidade.png')
 
