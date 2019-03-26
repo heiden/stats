@@ -15,9 +15,12 @@ data = pd.read_csv('./hipervolume.csv')
 
 # data = data[data['Cardinalidade'] == 3]
 
-data.boxplot('Hipervolume', by = 'Algoritmo')
+data.boxplot('Hipervolume', by = 'Algoritmo', figsize = (12, 8))
+plt.suptitle('')
 plt.savefig('hipervolume_por_algoritmo.png')
-data.boxplot('Hipervolume', by = 'Cardinalidade')
+
+data.boxplot('Hipervolume', by = 'Cardinalidade', figsize = (12, 8))
+plt.suptitle('')
 plt.savefig('hipervolume_por_cardinalidade.png')
 
 # ANOVA
