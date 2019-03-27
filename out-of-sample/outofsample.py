@@ -63,7 +63,7 @@ ax.set_xticks(xticks)
 
 x = [p[0] for p in pontos_ib]
 y = [p[1] for p in pontos_ib]
-ax.plot(x, y, '--', c = '#871c83', label = 'IBovespa')
+ax.plot(x, y, '--', c = '#871c83', label = 'Ibovespa')
 
 ###
 
