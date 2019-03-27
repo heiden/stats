@@ -12,7 +12,7 @@ algs = ['brkga', 'brknsga', 'nsgal', 'nsgam']
 k = ['3', '9', '15']
 
 q = 3.31 # cardinalidade
-se = sqrt(0.0000016 / 30.0)
+se = sqrt(1.994076e-10 / 30.0)
 hsd = q * se
 
 # cardinalidade
@@ -37,7 +37,7 @@ for i in k:
 
 # algoritmo
 q = 3.63 # algoritmo
-se = sqrt(0.0000016 / 30.0)
+se = sqrt(1.994076e-10 / 30.0)
 hsd = q * se
 for a in algs:
 	print(a, '============')

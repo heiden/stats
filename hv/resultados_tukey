@@ -1,14 +1,14 @@
 			     3		9		15			
 
-brkga x brknsga: s		s		i
+brkga x brknsga: s		i		i
 brkga x nsgam:   s		s		s
-brkga x nsgal:   s		s		i
-brknsga x nsgam: i		s		i
+brkga x nsgal:   s		s		s
+brknsga x nsgam: s		s		s
 brknsga x nsgal: s		s		s
-nsgam x nsgal:   s		s		s
+nsgam x nsgal:   i		s		i
 
 
 		brkga    brknsga    nsgam    nsgal	
-3 x 9		s		s			s		s
+3 x 9		i		s			s		s
 3 x 15		s		s			s		s
 9 x 15		s		s			i		s
