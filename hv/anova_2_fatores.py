@@ -15,11 +15,11 @@ data = pd.read_csv('./hipervolume.csv')
 
 # data = data[data['Cardinalidade'] == 3]
 
-data.boxplot('Hipervolume', by = 'Algoritmo', figsize = (12, 8))
+data.boxplot('Hipervolume', by = 'Algoritmo', figsize = (12, 8), fontsize = 18, grid = False)
 plt.suptitle('')
 plt.savefig('hipervolume_por_algoritmo.png')
 
-data.boxplot('Hipervolume', by = 'Cardinalidade', figsize = (12, 8))
+data.boxplot('Hipervolume', by = 'Cardinalidade', figsize = (12, 8), fontsize = 18, grid = False)
 plt.suptitle('')
 plt.savefig('hipervolume_por_cardinalidade.png')
 

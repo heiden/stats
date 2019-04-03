@@ -14,11 +14,11 @@ from statsmodels.formula.api import ols
 data = pd.read_csv('./delta.csv')
 
 # print(data)
-data.boxplot('Delta', by = 'Algoritmo', figsize = (12, 8))
+data.boxplot('Delta', by = 'Algoritmo', figsize = (12, 8), fontsize = 18, grid = False)
 plt.suptitle('')
 plt.savefig('delta_por_algoritmo.png')
 
-data.boxplot('Delta', by = 'Cardinalidade', figsize = (12, 8))
+data.boxplot('Delta', by = 'Cardinalidade', figsize = (12, 8), fontsize = 18, grid = False)
 plt.suptitle('')
 plt.savefig('delta_por_cardinalidade.png')
 
