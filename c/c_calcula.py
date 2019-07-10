@@ -3,7 +3,8 @@ from sys import argv
 from os import listdir
 
 k = argv[1]
-dir = '../fronteiras/res/' + str(k) + '/'
+# dir = '../fronteiras/res/' + str(k) + '/' # resultados
+dir = './cx/'
 arqs = listdir(dir)
 
 m = [[0 for x in range(len(arqs))] for y in range(len(arqs))]
