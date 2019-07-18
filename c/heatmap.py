@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 path = './'
 file = argv[1]
 # nomes = ['BRKGA', 'BRKNSGA', 'NSGA-M', 'NSGA-L']
-nomes = ['3%', '4%', '5%', '6%', '7%']
+nomes = ['100', '200', '300', '400', '500']
 dataset = pd.read_csv(path + file, names = nomes)
 print(dataset.values)
 
