@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from sys import argv
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FormatStrFormatter
@@ -38,28 +41,35 @@ ax.yaxis.set_major_formatter(FormatStrFormatter('%.4f'))
 
 # ax.plot(x, y, 'x', c = '#757D75', label = 'NSGA-L')
 
-with open('./res/3/res-' + n + '-3') as arq:
+with open('./res/{0}/res-brkga-{0}'.format(n)) as arq:
 	linhas = arq.readlines()
 	x = [float(linha.split()[0]) for linha in linhas]
 	y = [float(linha.split()[1]) for linha in linhas]
 
-ax.plot(x, y, '.', c = '#ABB7B7', label = '3')
+ax.plot(x, y, 'x', c = '#f4e513', label = 'BRKGA')
 
-with open('./res/9/res-' + n + '-9') as arq:
+with open('./res/{0}/res-nsgal-{0}'.format(n)) as arq:
 	linhas = arq.readlines()
 	x = [float(linha.split()[0]) for linha in linhas]
 	y = [float(linha.split()[1]) for linha in linhas]
 
-ax.plot(x, y, '^', c = '#000000', label = '9')
+ax.plot(x, y, 'x', c = '#93f413', label = 'NSGA-L')
 
-with open('./res/15/res-' + n + '-15') as arq:
+with open('./res/{0}/res-nsgam-{0}'.format(n)) as arq:
 	linhas = arq.readlines()
 	x = [float(linha.split()[0]) for linha in linhas]
 	y = [float(linha.split()[1]) for linha in linhas]
 
-ax.plot(x, y, 'x', c = '#757D75', label = '15')
+ax.plot(x, y, 'x', c = '#ba5584', label = 'NSGA-M')
 
-leg = ax.legend()
+with open('./res/{0}/res-brknsga-{0}'.format(n)) as arq:
+	linhas = arq.readlines()
+	x = [float(linha.split()[0]) for linha in linhas]
+	y = [float(linha.split()[1]) for linha in linhas]
+
+ax.plot(x, y, 'x', c = '#55a7ba', label = u'Híbrido')
+
+leg = ax.legend(loc = 4)
 
 # plt.show()
 plt.savefig(titulo + '.png')
