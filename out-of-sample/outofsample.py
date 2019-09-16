@@ -35,13 +35,13 @@ def gera_series(ativos):
 	return [serie_ativo(i-1) for i in ativos]
 
 def gera_pontos(series, lotes):
-	val = 1
+	val = lotes
 	pontos = []
-	# print(lotes)
 	for i in range(len(series[0]) - 1):
-		pontos.append((i, (val - 1) * 100))
+		print(sum(val))
+		pontos.append((i, (sum(val) - 1) * 100))
 		for j in range(len(series)):
-			val += val * lotes[j] * ((series[j][i+1] - series[j][i]) / series[j][i])
+			val[j] += lotes[j] * ((series[j][i+1] - series[j][i]) / series[j][i])
 	return pontos
 
 def gera_medias(pontos):
@@ -224,10 +224,10 @@ lotes_brknsga_15  = [[0.00156662, 0.00160231, 0.00248698, 0.00317106, 0.00333752
 
 # plot_maior(ativos_brkga_9, lotes_brkga_9, 'BRKGA', 'g', '-.')
 # plot_maior(ativos_brknsga_9, lotes_brknsga_9, 'BRKNSGA', 'b', ':')
-# plot_maior(ativos_nsgal_9, lotes_nsgal_9, 'NSGA-M', 'r', '-')
+plot_maior(ativos_nsgal_9, lotes_nsgal_9, 'NSGA-M', 'r', '-')
 # plot_maior(ativos_nsgam_9, lotes_nsgam_9, 'NSGA-L', 'y', '--')
 
-plot_maior([[1]], [[1]], 'abev', 'r', '-')
+# plot_maior([[1]], [[1]], 'abev', 'r', '-')
 
 # plot_maior(ativos_brknsga_3, lotes_brknsga_3, 'BRKNSGA-3', 'g', '-.')
 # plot_maior(ativos_brknsga_9, lotes_brknsga_9, 'BRKNSGA-9', 'b', ':')
