@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 from os import listdir
 
@@ -38,7 +39,6 @@ def gera_pontos(series, lotes):
 	val = lotes
 	pontos = []
 	for i in range(len(series[0]) - 1):
-		print(sum(val))
 		pontos.append((i, (sum(val) - 1) * 100))
 		for j in range(len(series)):
 			val[j] += lotes[j] * ((series[j][i+1] - series[j][i]) / series[j][i])
@@ -96,6 +96,20 @@ def plot_maior(ativos, lotes, alg, cor, style):
 	y = [p[1] for p in pontos_grafico]
 	ax.plot(x, y, style, c = cor, label = alg)
 
+def plot_portfolio(ativos, lotes):
+	retorno_total = 0
+	todos_os_pontos = []
+	for i in range(len(ativos)):
+		retorno_ativo = 0
+		pontos_por_ativo = []
+		serie = serie_ativo(ativos[i])
+		for j in range(len(serie) - 1):
+			retorno_ativo += (serie[j+1] - serie[j]) / serie[j]
+			pontos_por_ativo.append(retorno_ativo * lotes[i])
+		retorno_total += retorno_ativo * lotes[i]
+		todos_os_pontos.append(pontos_por_ativo)
+
+	return np.sum(todos_os_pontos, axis = 0)
 
 ibovespa = serie_ibovespa()
 xticks = acha_ticks()
@@ -224,10 +238,14 @@ lotes_brknsga_15  = [[0.00156662, 0.00160231, 0.00248698, 0.00317106, 0.00333752
 
 # plot_maior(ativos_brkga_9, lotes_brkga_9, 'BRKGA', 'g', '-.')
 # plot_maior(ativos_brknsga_9, lotes_brknsga_9, 'BRKNSGA', 'b', ':')
-plot_maior(ativos_nsgal_9, lotes_nsgal_9, 'NSGA-M', 'r', '-')
+# plot_maior(ativos_nsgal_9, lotes_nsgal_9, 'NSGA-M', 'r', '-')
 # plot_maior(ativos_nsgam_9, lotes_nsgam_9, 'NSGA-L', 'y', '--')
 
-# plot_maior([[1]], [[1]], 'abev', 'r', '-')
+plot_maior([[1]], [[1]], 'lol antigo', 'r', '-')
+pontos = plot_portfolio([1], [1])
+pontos = [pontos[x] * 100 for x in range(len(pontos))]
+ax.plot(list(range(len(pontos))), pontos, '--', c = '#2a35fc', label = 'LOL')
+
 
 # plot_maior(ativos_brknsga_3, lotes_brknsga_3, 'BRKNSGA-3', 'g', '-.')
 # plot_maior(ativos_brknsga_9, lotes_brknsga_9, 'BRKNSGA-9', 'b', ':')
