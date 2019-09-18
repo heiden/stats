@@ -12,7 +12,7 @@ def serie_ibovespa():
 def serie_ativo(n):
 	dir = './ativos/'
 	arqs = listdir(dir)
-	arq = arqs[n]
+	arq = arqs[n-1]
 	data = pd.read_csv(dir + arq)
 	return data['Adj Close'].values
 
@@ -34,7 +34,7 @@ def acha_ticks():
 	return ticks
 
 def gera_series(ativos):
-	return [serie_ativo(i-1) for i in ativos]
+	return [serie_ativo(i) for i in ativos]
 
 def gera_pontos(series, lotes):
 	val = lotes
@@ -125,15 +125,6 @@ def le_dados(alg, k):
 
 	return portfolios
 
-alg = argv[1]
-k = argv[2]
-portfolios = le_dados(alg, k)
-
-print(portfolios)
-
-exit(0)
-
-
 
 
 ibovespa = serie_ibovespa()
@@ -157,14 +148,23 @@ x = [p[0] for p in pontos_ib]
 y = [p[1] for p in pontos_ib]
 ax.plot(x, y, '--', c = '#871c83', label = 'Ibovespa')
 
+alg = argv[1]
+k = argv[2]
+portfolios = le_dados(alg, k)
+colours = ['#70cc3c', '#5db690', '#9c3266', '#34ce19', '#472859', '#1f7332', '#9750e2', '#355074', '#7e7b93', '#8ab567',
+		   '#7be104', '#4efd1f', '#3e11d0', '#8561b3', '#f2081e', '#347296', '#aba14b', '#f999c8', '#1e1cf5', '#ee83de',
+		   '#2b2bc6', '#ba532c', '#b01c26', '#5d738d', '#be3aee', '#1e18df', '#2e94dc', '#f48fac', '#ad742d', '#e86fca']
 
-pontos = plot_portfolio([23, 1, 25, 48, 55, 38, 24, 31, 41], [0.0625317, 0.00483437, 0.125256, 0.236721, 0.141015, 0.0777789, 0.185232, 0.162253, 0.0043773])
-pontos = [pontos[x] * 100 for x in range(len(pontos))]
-ax.plot(list(range(len(pontos))), pontos, '--', c = '#2a35fc', label = 'LOL')
+i = 0
+for p in portfolios:
+	pontos = plot_portfolio(p[0], p[1])
+	pontos = [pontos[x] * 100 for x in range(len(pontos))]
+	ax.plot(list(range(len(pontos))), pontos, '--', c = colours[i], label = str(i+1))
+	i += 1
 
 
 ###
 
 leg = ax.legend(loc = 4)
 # plt.show()
-plt.savefig('sample.png')
+plt.savefig('yeah.png')
