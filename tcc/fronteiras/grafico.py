@@ -13,21 +13,21 @@ ax.set_xlabel('Risco')
 ax.set_ylabel('Retorno')
 ax.yaxis.set_major_formatter(FormatStrFormatter('%.4f'))
 
-with open('nsga-3'.format(n)) as arq:
-	linhas = arq.readlines()
-	x = [float(linha.split()[0]) for linha in linhas]
-	y = [float(linha.split()[1]) for linha in linhas]
+# with open('brkga-{0}'.format(n)) as arq:
+# 	linhas = arq.readlines()
+# 	x = [float(linha.split()[0]) for linha in linhas]
+# 	y = [float(linha.split()[1]) for linha in linhas]
 
-ax.plot(x, y, 'x', c = '#f4e513', label = 'BRKGA')
+# ax.plot(x, y, 'x', c = '#f4e513', label = 'BRKGA')
 
-with open('nsga-9'.format(n)) as arq:
+with open('nsga-{0}'.format(n)) as arq:
 	linhas = arq.readlines()
 	x = [float(linha.split()[0]) for linha in linhas]
 	y = [float(linha.split()[1]) for linha in linhas]
 
 ax.plot(x, y, 'x', c = '#93f413', label = 'NSGA')
 
-with open('nsga-15'.format(n)) as arq:
+with open('hibrido-{0}'.format(n)) as arq:
 	linhas = arq.readlines()
 	x = [float(linha.split()[0]) for linha in linhas]
 	y = [float(linha.split()[1]) for linha in linhas]

@@ -11,7 +11,7 @@ end
 
 k = ["3", "9", "15"]
 # algs = ["brkga", "hibrido", "nsga"]
-algs = ["nsga"]
+algs = ["hibrido"]
 
 for alg in algs
 	for i in k
