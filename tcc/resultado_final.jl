@@ -9,9 +9,8 @@ function plot(fronteira, dir, arq)
 	end
 end
 
-k = ["3", "9", "15"]
-# algs = ["brkga", "hibrido", "nsga"]
-algs = ["hibrido"]
+k = ["3"]
+algs = ["brkga"]
 
 for alg in algs
 	for i in k
