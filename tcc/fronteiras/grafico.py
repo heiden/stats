@@ -6,70 +6,36 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import FormatStrFormatter
 
 n = argv[1]
+alg = argv[2]
 fig = plt.figure()
 ax = fig.add_subplot(111)
-titulo = 'portfolios-' + n
+titulo = 'portfolios-' + alg + '-' + n
 ax.set_xlabel('Risco')
 ax.set_ylabel('Retorno')
 ax.yaxis.set_major_formatter(FormatStrFormatter('%.4f'))
 
-with open('brkga-{0}'.format(n)) as arq:
+with open('../dados-com-params/{0}-{1}'.format(alg, n)) as arq:
 	linhas = arq.readlines()
 	x = [float(linha.split()[0]) for linha in linhas]
 	y = [float(linha.split()[1]) for linha in linhas]
 
-ax.plot(x, y, 'x', c = '#c61f7b', label = 'BRKGA')
+ax.plot(x, y, 'x', c = '#ff9114', label = u'Com Parametrização Adaptativa')
 
-# with open('sem-params/brkga-{0}'.format(n)) as arq:
-# 	linhas = arq.readlines()
-# 	x = [float(linha.split()[0]) for linha in linhas]
-# 	y = [float(linha.split()[1]) for linha in linhas]
-
-# ax.plot(x, y, 'x', c = '#1fc6be', label = u'BRKGA Parametrizado 3')
-
-# with open('brkga-9'.format(n)) as arq:
-# 	linhas = arq.readlines()
-# 	x = [float(linha.split()[0]) for linha in linhas]
-# 	y = [float(linha.split()[1]) for linha in linhas]
-
-# ax.plot(x, y, 'x', c = '#000000', label = u'BRKGA Original 9')
-
-# with open('sem-params/brkga-9'.format(n)) as arq:
-# 	linhas = arq.readlines()
-# 	x = [float(linha.split()[0]) for linha in linhas]
-# 	y = [float(linha.split()[1]) for linha in linhas]
-
-# ax.plot(x, y, 'x', c = '#93f413', label = u'BRKGA Parametrizado 9')
-
-# with open('brkga-15'.format(n)) as arq:
-# 	linhas = arq.readlines()
-# 	x = [float(linha.split()[0]) for linha in linhas]
-# 	y = [float(linha.split()[1]) for linha in linhas]
-
-# ax.plot(x, y, 'x', c = '#e0e04c', label = u'BRKGA Original 15')
-
-# with open('sem-params/brkga-15'.format(n)) as arq:
-# 	linhas = arq.readlines()
-# 	x = [float(linha.split()[0]) for linha in linhas]
-# 	y = [float(linha.split()[1]) for linha in linhas]
-
-# ax.plot(x, y, 'x', c = '#e04c4c', label = u'BRKGA Parametrizado 15')
-
-with open('nsga-{0}'.format(n)) as arq:
+with open('../dados-sem-params/{0}-{1}'.format(alg, n)) as arq:
 	linhas = arq.readlines()
 	x = [float(linha.split()[0]) for linha in linhas]
 	y = [float(linha.split()[1]) for linha in linhas]
 
-ax.plot(x, y, 'x', c = '#93f413', label = 'NSGA')
+ax.plot(x, y, 'x', c = '#ed17cd', label = u'Sem Parametrização Adaptativa')
 
-with open('hibrido-{0}'.format(n)) as arq:
-	linhas = arq.readlines()
-	x = [float(linha.split()[0]) for linha in linhas]
-	y = [float(linha.split()[1]) for linha in linhas]
+# with open('hibrido-{0}'.format(n)) as arq:
+# 	linhas = arq.readlines()
+# 	x = [float(linha.split()[0]) for linha in linhas]
+# 	y = [float(linha.split()[1]) for linha in linhas]
 
-ax.plot(x, y, 'x', c = '#1fc6be', label = u'Híbrido')
+# ax.plot(x, y, 'x', c = '#1fc6be', label = u'Híbrido')
 
 leg = ax.legend(loc = 4)
 
 # plt.show()
-plt.savefig(titulo + '.png')
+plt.savefig(titulo + '-com-busca-local.png')

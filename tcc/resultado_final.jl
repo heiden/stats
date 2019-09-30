@@ -9,13 +9,13 @@ function plot(fronteira, dir, arq)
 	end
 end
 
-k = ["3"]
-algs = ["nsga"]
+k = ["3", "9", "15"]
+algs = ["brkga", "hibrido", "nsga"]
 
 for alg in algs
 	for i in k
 		pontos = []
-		dir = alg * "/" * i * "/"
+		dir = "dados-com-busca-local/" * alg * "/" * i * "/"
 		println(dir)
 		arqs = readdir(dir)
 		for arq in arqs
