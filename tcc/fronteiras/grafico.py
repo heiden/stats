@@ -13,12 +13,12 @@ ax.set_xlabel('Risco')
 ax.set_ylabel('Retorno')
 ax.yaxis.set_major_formatter(FormatStrFormatter('%.4f'))
 
-# with open('brkga-{0}'.format(n)) as arq:
-# 	linhas = arq.readlines()
-# 	x = [float(linha.split()[0]) for linha in linhas]
-# 	y = [float(linha.split()[1]) for linha in linhas]
+with open('brkga-{0}'.format(n)) as arq:
+	linhas = arq.readlines()
+	x = [float(linha.split()[0]) for linha in linhas]
+	y = [float(linha.split()[1]) for linha in linhas]
 
-# ax.plot(x, y, 'x', c = '#c61f7b', label = u'BRKGA Original 3')
+ax.plot(x, y, 'x', c = '#c61f7b', label = 'BRKGA')
 
 # with open('sem-params/brkga-{0}'.format(n)) as arq:
 # 	linhas = arq.readlines()
@@ -62,7 +62,7 @@ with open('nsga-{0}'.format(n)) as arq:
 
 ax.plot(x, y, 'x', c = '#93f413', label = 'NSGA')
 
-with open('pontos66'.format(n)) as arq:
+with open('hibrido-{0}'.format(n)) as arq:
 	linhas = arq.readlines()
 	x = [float(linha.split()[0]) for linha in linhas]
 	y = [float(linha.split()[1]) for linha in linhas]
