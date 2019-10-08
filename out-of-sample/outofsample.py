@@ -90,7 +90,7 @@ def plot_maior(ativos, lotes, alg, cor, style):
 	print(idx)
 	series = gera_series(ativos[idx])
 
-	pontos_grafico = gera_pontos(series, lotes[idx])
+	pontos_grafico = gera_pontos(series, lotes[0])
 
 	ax = fig.add_subplot(111)
 	x = [p[0] for p in pontos_grafico]
@@ -114,7 +114,7 @@ def plot_portfolio(ativos, lotes):
 
 def le_dados(alg, k):
 	portfolios = []
-	arq = 'portfolios/' + alg + '/' + 'portfolios' + k
+	arq = 'portfolios-com-params/' + alg + '/' + 'portfolios' + k
 	with open(arq, 'r') as f:
 		for i in range(30):
 			ativos = map(int, f.readline().split())
@@ -151,20 +151,29 @@ ax.plot(x, y, '--', c = '#871c83', label = 'Ibovespa')
 alg = argv[1]
 k = argv[2]
 portfolios = le_dados(alg, k)
+linestyles = ['-', '--', '-.', ':']
 colours = ['#70cc3c', '#5db690', '#9c3266', '#34ce19', '#472859', '#1f7332', '#9750e2', '#355074', '#7e7b93', '#8ab567',
 		   '#7be104', '#4efd1f', '#3e11d0', '#8561b3', '#f2081e', '#347296', '#aba14b', '#f999c8', '#1e1cf5', '#ee83de',
 		   '#2b2bc6', '#ba532c', '#b01c26', '#5d738d', '#be3aee', '#1e18df', '#2e94dc', '#f48fac', '#ad742d', '#e86fca']
 
 i = 0
+portfolios = [([31, 1, 41, 37, 23, 24, 38, 27, 25, 32, 20, 55, 2, 51, 48], [0.06545527, 0.054544732, 0.099999994, 0.04000001, 0.04, 0.10000001, 0.098589286, 0.041410718, 0.055475764, 0.06452424, 0.043125726, 0.07687428, 0.025583567, 0.09441644, 0.1])]
 for p in portfolios:
+	if i == 24:		print(p)
 	pontos = plot_portfolio(p[0], p[1])
 	pontos = [pontos[x] * 100 for x in range(len(pontos))]
-	ax.plot(list(range(len(pontos))), pontos, '--', c = colours[i], label = str(i+1))
+	ax.plot(list(range(len(pontos))), pontos, linestyles[i % 4], c = colours[i], label = str(i))
 	i += 1
+
+# ativos, lotes = [], []
+# for p in portfolios:
+# 	ativos.append(p[0])
+# 	lotes.append(p[1])
+# plot_maior(ativos, lotes, "brkga", colours[1], '--')
 
 
 ###
 
-leg = ax.legend(loc = 4)
+leg = ax.legend(loc = 3)
 # plt.show()
-plt.savefig('yeah.png')
+plt.savefig(alg + '-' + k + '.png')
