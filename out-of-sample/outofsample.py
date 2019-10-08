@@ -114,7 +114,7 @@ def plot_portfolio(ativos, lotes):
 
 def le_dados(alg, k):
 	portfolios = []
-	arq = 'portfolios-com-params/' + alg + '/' + 'portfolios' + k
+	arq = 'portfolios-sem-params/' + alg + '/' + 'portfolios' + k
 	with open(arq, 'r') as f:
 		for i in range(30):
 			ativos = map(int, f.readline().split())
@@ -156,10 +156,11 @@ colours = ['#70cc3c', '#5db690', '#9c3266', '#34ce19', '#472859', '#1f7332', '#9
 		   '#7be104', '#4efd1f', '#3e11d0', '#8561b3', '#f2081e', '#347296', '#aba14b', '#f999c8', '#1e1cf5', '#ee83de',
 		   '#2b2bc6', '#ba532c', '#b01c26', '#5d738d', '#be3aee', '#1e18df', '#2e94dc', '#f48fac', '#ad742d', '#e86fca']
 
+portfolios = [([37, 9, 52, 38, 25, 22, 55, 48, 31, 1, 24, 23, 2, 41, 51], [0.06427822, 0.05862244, 0.06676476, 0.06781533, 0.0759245, 0.07197108, 0.064696744, 0.07467621, 0.068949476, 0.067445844, 0.062911995, 0.0707785, 0.06669755, 0.062468432, 0.05599895])]
+
 i = 0
-# portfolios = [([55, 31, 40, 22, 1, 23, 60, 41, 52, 48, 24, 2, 51, 38, 9], [0.032224122, 0.087775886, 0.043484632, 0.07651538, 0.066722095, 0.05327791, 0.023219017, 0.096780986, 0.04, 0.10000001, 0.09711848, 0.042881522, 0.099999994, 0.04000001, 0.1])]
 for p in portfolios:
-	# if i == 3:		print(p)
+	if i == 23:		print(p)
 	pontos = plot_portfolio(p[0], p[1])
 	pontos = [pontos[x] * 100 for x in range(len(pontos))]
 	ax.plot(list(range(len(pontos))), pontos, linestyles[i % 4], c = colours[i], label = str(i))
