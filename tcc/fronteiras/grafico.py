@@ -13,26 +13,26 @@ ax.set_xlabel('Risco')
 ax.set_ylabel('Retorno')
 ax.yaxis.set_major_formatter(FormatStrFormatter('%.4f'))
 
-with open('../dados-com-params/brkga-{0}'.format(n)) as arq:
+with open('nsga-3') as arq:
 	linhas = arq.readlines()
 	x = [float(linha.split()[0]) for linha in linhas]
 	y = [float(linha.split()[1]) for linha in linhas]
 
-ax.plot(x, y, 'x', c = '#ed17cd', label = 'BRKGA')
+ax.plot(x, y, 'x', c = '#ed17cd', label = 'nsga total')
 
-with open('../dados-com-params/nsga-{0}'.format(n)) as arq:
+with open('pontos1') as arq:
 	linhas = arq.readlines()
 	x = [float(linha.split()[0]) for linha in linhas]
 	y = [float(linha.split()[1]) for linha in linhas]
 
-ax.plot(x, y, 'x', c = '#ff9114', label = 'NSGA')
+ax.plot(x, y, 'x', c = '#ff9114', label = 'nsga random')
 
-with open('../dados-com-params/hibrido-{0}'.format(n)) as arq:
+with open('pontos500'.format(n)) as arq:
 	linhas = arq.readlines()
 	x = [float(linha.split()[0]) for linha in linhas]
 	y = [float(linha.split()[1]) for linha in linhas]
 
-ax.plot(x, y, 'x', c = '#34d8c5', label = u'Híbrido')
+ax.plot(x, y, 'x', c = '#34d8c5', label = u'buscaloal')
 
 leg = ax.legend(loc = 4)
 
