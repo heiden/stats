@@ -18,21 +18,28 @@ with open('nsga-3') as arq:
 	x = [float(linha.split()[0]) for linha in linhas]
 	y = [float(linha.split()[1]) for linha in linhas]
 
-ax.plot(x, y, 'x', c = '#ed17cd', label = 'nsga total')
+ax.plot(x, y, 'x', c = '#ed17cd', label = '3 locl')
 
-with open('pontos1') as arq:
+with open('nsga-9') as arq:
 	linhas = arq.readlines()
 	x = [float(linha.split()[0]) for linha in linhas]
 	y = [float(linha.split()[1]) for linha in linhas]
 
-ax.plot(x, y, 'x', c = '#ff9114', label = 'nsga random')
+ax.plot(x, y, 'x', c = '#000000', label = '9 locl')
 
-with open('pontos500'.format(n)) as arq:
+with open('nsga-15') as arq:
 	linhas = arq.readlines()
 	x = [float(linha.split()[0]) for linha in linhas]
 	y = [float(linha.split()[1]) for linha in linhas]
 
-ax.plot(x, y, 'x', c = '#34d8c5', label = u'buscaloal')
+ax.plot(x, y, 'x', c = '#ff9114', label = '15 loc')
+
+with open('nsga-9-normal'.format(n)) as arq:
+	linhas = arq.readlines()
+	x = [float(linha.split()[0]) for linha in linhas]
+	y = [float(linha.split()[1]) for linha in linhas]
+
+ax.plot(x, y, 'x', c = '#34d8c5', label = u'9 normal')
 
 leg = ax.legend(loc = 4)
 
