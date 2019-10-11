@@ -28,3 +28,11 @@ hibrido
 	sem 		com			sem 		com				sem 	com
 sem  -		0.70659		sem  -			0.32869		sem  -		0.14545
 com  0.58036    -		com  0.33080    -			com 0.70909     -
+
+
+nsga busca local
+
+		3						9							15
+	sem 		com				sem 	com					sem 	com
+sem  -			0.03471		sem  -		0.00204			sem	 -		0
+com  0.75501      -			com	0.97994		-			com	 1		-
