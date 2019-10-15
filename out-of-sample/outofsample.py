@@ -12,6 +12,11 @@ def serie_ibovespa():
 	data = pd.read_csv(arq)
 	return data.Adj_Close.values
 
+def serie_cdi():
+	arq = "./cdi.csv"
+	data = pd.read_csv(arq)
+	return data.Adj_Close.values
+
 def serie_ativo(n):
 	dir = './ativos/'
 	arqs = listdir(dir)
@@ -130,15 +135,8 @@ def le_dados(alg, k):
 
 
 
-ibovespa = serie_ibovespa()
 xticks = acha_ticks()
 print(xticks)
-ib = 1
-pontos_ib = []
-for i in range(len(ibovespa) - 1):
-	pontos_ib.append((i, (ib - 1) * 100))
-	ib += ib * ((ibovespa[i+1] - ibovespa[i]) / ibovespa[i])
-
 fig = plt.figure(figsize = (12, 8))
 ax = fig.add_subplot(111)
 ax.set_xlabel('Tempo')
@@ -147,17 +145,35 @@ xlabels = ['Jan 2016', 'Jul 2016', 'Jan 2017', 'Jul 2017', 'Jan 2018', 'Jul 2018
 ax.set_xticklabels(xlabels)
 ax.set_xticks(xticks)
 
+ibovespa = serie_ibovespa()
+ib = 1
+pontos_ib = []
+for i in range(len(ibovespa) - 1):
+	pontos_ib.append((i, (ib - 1) * 100))
+	ib += ib * ((ibovespa[i+1] - ibovespa[i]) / ibovespa[i])
+
 x = [p[0] for p in pontos_ib]
 y = [p[1] for p in pontos_ib]
 ax.plot(x, y, '--', c = '#871c83', label = 'Ibovespa')
 
-alg = argv[1]
-k = argv[2]
-portfolios = le_dados(alg, k)
-linestyles = ['-', '--', '-.', ':']
-colours = ['#70cc3c', '#5db690', '#9c3266', '#34ce19', '#472859', '#1f7332', '#9750e2', '#355074', '#7e7b93', '#8ab567',
-		   '#7be104', '#4efd1f', '#3e11d0', '#8561b3', '#f2081e', '#347296', '#aba14b', '#f999c8', '#1e1cf5', '#ee83de',
-		   '#2b2bc6', '#ba532c', '#b01c26', '#5d738d', '#be3aee', '#1e18df', '#2e94dc', '#f48fac', '#ad742d', '#e86fca']
+cdi = serie_cdi()
+c = 1
+pontos_cdi = []
+for i in range(len(cdi) - 1):
+	pontos_cdi.append((i, (c-1)*100))
+	c *= cdi[i]
+
+x = [p[0] for p in pontos_cdi]
+y = [p[1] for p in pontos_cdi]
+ax.plot(x, y, '--', c = '#4fd15c', label = 'CDI')
+
+# alg = argv[1]
+# k = argv[2]
+# portfolios = le_dados(alg, k)
+# linestyles = ['-', '--', '-.', ':']
+# colours = ['#70cc3c', '#5db690', '#9c3266', '#34ce19', '#472859', '#1f7332', '#9750e2', '#355074', '#7e7b93', '#8ab567',
+# 		   '#7be104', '#4efd1f', '#3e11d0', '#8561b3', '#f2081e', '#347296', '#aba14b', '#f999c8', '#1e1cf5', '#ee83de',
+# 		   '#2b2bc6', '#ba532c', '#b01c26', '#5d738d', '#be3aee', '#1e18df', '#2e94dc', '#f48fac', '#ad742d', '#e86fca']
 
 # portfolios = [
 # 	([31, 1, 41, 37, 23, 24, 38, 27, 25, 32, 20, 55, 2, 51, 48], [0.06545527, 0.054544732, 0.099999994, 0.04000001, 0.04, 0.10000001, 0.098589286, 0.041410718, 0.055475764, 0.06452424, 0.043125726, 0.07687428, 0.025583567, 0.09441644, 0.1]),
@@ -171,13 +187,13 @@ linestyles = ['--']
 
 # portfolios = [([23, 51, 41, 35, 55, 38, 25, 24, 2, 31, 1, 48, 37, 9, 22], [0.08114889, 0.020129543, 0.023104463, 0.020019723, 0.099981174, 0.09997313, 0.09997858, 0.099983595, 0.020185346, 0.09998089, 0.020520631, 0.099994116, 0.020040454, 0.09926883, 0.09569064])]
 
-i = 0
-for p in portfolios:
-	if i == 11:		print(p)
-	pontos = plot_portfolio(p[0], p[1])
-	pontos = [pontos[x] * 100 for x in range(len(pontos))]
-	ax.plot(list(range(len(pontos))), pontos, linestyles[i%4], c = colours[i], label = str(i))
-	i += 1
+# i = 0
+# for p in portfolios:
+# 	if i == 11:		print(p)
+# 	pontos = plot_portfolio(p[0], p[1])
+# 	pontos = [pontos[x] * 100 for x in range(len(pontos))]
+# 	ax.plot(list(range(len(pontos))), pontos, linestyles[i%4], c = colours[i], label = str(i))
+# 	i += 1
 
 # ativos, lotes = [], []
 # for p in portfolios:
@@ -188,7 +204,7 @@ for p in portfolios:
 
 ###
 
-leg = ax.legend(loc = 3)
+leg = ax.legend(loc = 4)
 # plt.show()
-plt.savefig('com-params-15.png')
+plt.savefig('test.png')
 # plt.savefig(alg + '-' + k + '.png')

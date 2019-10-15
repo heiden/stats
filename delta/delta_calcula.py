@@ -1,8 +1,8 @@
 from delta import delta
 from os import listdir
 
-origem = '../tcc/'
-algs = ['brkga/', 'hibrido/', 'nsga/']
+origem = '../tcc/dados-com-params/'
+algs = ['brkga/', 'nsga/', 'hibrido/']
 k = ['3', '9', '15']
 
 for a in algs:
