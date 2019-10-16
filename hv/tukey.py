@@ -8,11 +8,11 @@ import numpy as np
 from math import sqrt, fabs
 
 origem = './resultados/'
-algs = ['brkga', 'brknsga', 'nsgal', 'nsgam']
+algs = ['brkga', 'nsga', 'hibrido']
 k = ['3', '9', '15']
 
 q = 3.31 # cardinalidade
-se = sqrt(1.994076e-10 / 30.0)
+se = sqrt(6.957406e-11 / 30.0) # MS do erro / num de amostras
 hsd = q * se
 
 # cardinalidade
@@ -36,7 +36,7 @@ for i in k:
 				print(algs[x], algs[y], 'insignificante', fabs(medias[x] - medias[y]), fabs(medias[x] - medias[y]) - fabs(desvios[x] - desvios[y]), fabs(medias[x] - medias[y]) + fabs(desvios[x] - desvios[y]))
 
 # algoritmo
-q = 3.63 # algoritmo
+q = 3.31 # algoritmo
 se = sqrt(1.994076e-10 / 30.0)
 hsd = q * se
 for a in algs:
