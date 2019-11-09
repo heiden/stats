@@ -1,0 +1,27 @@
+c()			A		B 		C 		D	 	E
+A		    -	 c(A,B)	   c(A,C)  c(A,D)  c(A,E)
+B  		  c(B,A)    -
+C		  c(C,A)  			-
+D 		  c(D,A)					-
+E		  c(E,A)							-
+________________________
+
+3
+			brkga		nsga		hibrido
+brkga		  -			0.14816		0.53252
+nsga		0.00164  	 - 			0.06514
+hibrido		0.76261		0.25209			-		
+
+
+9
+			brkga		nsga		hibrido
+brkga		  -			0.02932		0.05246
+nsga		0.02226		  - 			0		
+hibrido		0.05993		  1				-		
+
+
+15
+			brkga		nsga		hibrido
+brkga		  -			0.32468 	0.07273			
+nsga		0.28571   	- 				0			
+hibrido		0.76190 	1.00000			-

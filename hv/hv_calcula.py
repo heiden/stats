@@ -1,8 +1,8 @@
 from hv import hv
 from os import listdir
 
-origem = '../data/'
-algs = ['brkga/', 'brknsga/', 'nsgal/', 'nsgam/']
+origem = '../tcc/dados-com-params/'
+algs = ['brkga/', 'nsga/', 'hibrido/']
 k = ['3', '9', '15']
 
 for a in algs:

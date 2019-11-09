@@ -29,6 +29,14 @@ model = ols(formula, data).fit()
 aov_table = statsmodels.stats.anova.anova_lm(model, typ = 2)
 print(aov_table)
 
+# TCC
+#                                          SS     	 df      		  MS	    	F        p-valor
+# C(Algoritmo)                   1.432380e-06    	2.0  	7.161900e-07	58.097326  	1.348295e-21
+# C(Cardinalidade)               2.430169e-06    	2.0  	1.215084e-06	98.567628  	1.293917e-32
+# C(Algoritmo):C(Cardinalidade)  9.636850e-07    	4.0  	2.409212e-07	19.543530  	4.404311e-14
+# Residual                       3.217456e-06  	  261.0  	1.232742e-08		  NaN	         NaN
+
+# IC
 #                                   	SS     df  			MS         			 F       p-valor
 # Algoritmo                 	  0.000019    3.0  		6.33e-06		200.972122  1.298555e-75
 # Cardinalidade               	  0.000003    2.0   	1.50e-06		50.828452   4.299798e-20

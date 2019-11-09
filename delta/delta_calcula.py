@@ -1,8 +1,8 @@
 from delta import delta
 from os import listdir
 
-origem = '../data/'
-algs = ['brkga/', 'brknsga/', 'nsgal/', 'nsgam/']
+origem = '../tcc/dados-com-params/'
+algs = ['brkga/', 'nsga/', 'hibrido/']
 k = ['3', '9', '15']
 
 for a in algs:
@@ -13,7 +13,7 @@ for a in algs:
 		for arq in arqs:
 			res = delta(dir + arq)
 			delta_dir.append(res)
-		saida = './resultados/' + a + i
+		# saida = './resultados/' + a + i
 		file = open('delta.csv', 'a')
 		# file = open(saida, 'w')
 		for d in delta_dir:

@@ -1,0 +1,38 @@
+c()			A		B 		C 		D	 	E
+A		    -	 c(A,B)	   c(A,C)  c(A,D)  c(A,E)
+B  		  c(B,A)    -
+C		  c(C,A)  			-
+D 		  c(D,A)					-
+E		  c(E,A)							-
+________________________
+
+brkga
+
+	   3				   		9			   		15
+	sem 	com				sem 	com				sem 	com
+sem  -		0.00109		sem  -		0.48855		sem  -		0.38095
+com 0.98268    -		com 0.14897     -		com 0.55556     -
+
+
+nsga
+
+	   3			   		9			   			15
+	sem 	com				sem 	com				sem 	com
+sem  -		0.24437		sem  -		0.40895		sem  -		0.16883
+com  0.45914    -		com 0.57703     -		com 0.66667     -
+
+
+hibrido
+
+	   3			   		9			   						15
+	sem 		com			sem 		com				sem 	com
+sem  -		0.70659		sem  -			0.32869		sem  -		0.14545
+com  0.58036    -		com  0.33080    -			com 0.70909     -
+
+
+nsga busca local
+
+		3						9							15
+	sem 		com				sem 	com					sem 	com
+sem  -			0.03471		sem  -		0.00204			sem	 -		0
+com  0.75501      -			com	0.97994		-			com	 1		-

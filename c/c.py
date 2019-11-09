@@ -34,7 +34,7 @@
 from sys import argv
 
 def domina(a, b):
-	if a[0] < b[0] and a[1] > b[1]: # [risco, retorno]
+	if a[0] <= b[0] and a[1] >= b[1]: # [risco, retorno]
 		return True
 	else:
 		return False
@@ -62,7 +62,7 @@ def c(file_a, file_b):
 	return c
 
 if __name__ == "__main__":
-	dir = 'data/'
+	dir = 'dados/'
 	file_a = dir + argv[1]
 	file_b = dir + argv[2]
 	print(c(file_a, file_b))
